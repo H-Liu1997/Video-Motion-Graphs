@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Video Motion Graphs">
+  <meta name="keywords" content="Video Generation, Human Video Generation, Animation, Video Motion Graphs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Motion Graphs</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- custom css file  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="icon" href="./assets/pac_man.svg">
+  <style>
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .video-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .video-item video {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .caption {
+      text-align: center;
+      margin-top: 5px;
+    }
+  </style>
+  
+  
+  <style>
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .video-pair {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .video-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    video {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .caption {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .pair-title {
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .figure-title {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .caption-line {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      width: 95%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Custom styles for the compositional section */
+    .compositional {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .compositional .image {
+      flex: 1;
+      max-width: 45%;
+    }
+
+    .compositional .image img,
+    .compositional .image video {
+      width: 100%;
+      height: auto;
+    }
+
+    .center-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .center-controls .arrow {
+      margin-bottom: 10px;
+    }
+
+    .center-controls .audio-control {
+      margin-top: 10px;
+    }
+
+    .audio-btn {
+      font-size: 24px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Adjust the headers inside .image */
+    .compositional .image .video_to_video_small_header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Adjust the thumbnails */
+    .compositional .image .thumbnails {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .compositional .image .thumbnails .thumbnail {
+      margin: 0 5px;
+    }
+
+    .compositional .image .thumbnails .thumbnail img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <!-- Removed 'is-max-desktop' from the container class -->
+      <div class="container head">
+        <div class="columns is-centered">
+          <div class="column has-text-centered head">
+            <br>
+
+            <h1 class="title is-2 publication-title">
+              Video Motion Graphs
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://h-liu1997.github.io/" target="_blank">Haiyang Liu</a><sup>1,2</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://zhan-xu.github.io/" target="_blank">Zhan Xu</a><sup>2</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://harlanhong.github.io/" target="_blank">Fa-Ting Hong</a><sup>2</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://hhsinping.github.io/" target="_blank">Shin-Ping Huang</a><sup>2</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://zhouyisjtu.github.io/" target="_blank">Yi Zhou</a><sup>2</sup>,&nbsp;
+              </span>
+              <span class="author-block">
+                <a href="https://yzhou359.github.io/" target="_blank">Yang Zhou</a><sup>2</sup>&nbsp;
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>The University of Tokyo</span>,
+              <span class="author-block"><sup>2</sup>Adobe Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Demo Link. -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>🤗&nbsp;Models (Under Legal Review)</span>
+                  </a>
+                </span>
+
+                <!-- arXiv Link. -->
+                <span class="link-block">
+                  <a href="" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://youtu.be/cLcxYBXnVFs" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+
+                <!-- Data Link. -->
+                <!-- <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span> -->
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Under Legal Review)</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO: show ten videos in two rows with autoplay and sound on click -->
+  <div class="video-grid">
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_7_audio_0.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 0</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_7_audio_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 1</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_7_audio_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 2</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_1_audio_3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 3</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_7_audio_4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 4</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_audio_5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 5</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_7_audio_6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 6</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/res_1_audio_7.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Video 7</p>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="figure-title" style="text-align:center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">Application - Music to Dance Video Retrieval + Generation</div>
+  <br>
+  <div class="video-grid">
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/slow_1_0.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Style 1</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/fast_1_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Style 2</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/kr_res_1_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Style 3</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/kr_res_4_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Style 3</p>
+    </div>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/slow_raw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Reference (29s)</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/slow_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Variance 1</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/audio_0_retri_0 (57).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Variance 2</p>
+    </div>
+    <div class="video-item">
+      <video class="demo-video" autoplay muted loop playsinline>
+        <source src="./res_overall_vmg/audio_0_retri_0 (56).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">Variance 3</p>
+    </div>
+  </div>
+  
+  <br>
+  <div class="figure-title" style="text-align:center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">Evaluation - Video Frame Interpolation for HMInterp (Core of Video Motion Grpahs)</div>
+  <h1 style="text-align: center;">Comparison with commercial models</h1>
+  <br>
+  <div class="video-container" style="text-align: center;">
+    <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 800px;">
+        <source src="./comp_with_pika_luma.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <br>
+  <h1 style="text-align: center;">Comparison with Open-Source models</h1>
+  <br>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Start</div>
+      <div>End</div>
+      <div>FILM</div>
+      <div>VFIFormer</div>
+      <div>DCInterp</div>
+      <div>ACInterp</div>
+      <div>Ours</div>
+      <div>GroundTruth</div>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_vfi/3e84bfa59b5c32a4628c7fe4f2099f60_644_658.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_vfi/f83b6fb98cbe8309bd24dcb28f67add8_884_898.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_vfi/910119c5feabe7752a5665b1e705c8ea_12_26.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+
+  <div class="figure-title" style="text-align:center; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Sports</div>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Start</div>
+      <div>End</div>
+      <div>FILM</div>
+      <div>VFIFormer</div>
+      <div>DCInterp</div>
+      <div>ACInterp</div>
+      <div>Ours</div>
+      <div>GroundTruth</div>
+  </div>
+
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/bmx_riding_7_clip1_12_26.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/juggling_balls_5_clip1_20_34.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/Shaolin_KungFu_Staff_Workout_Training_16_clip1_436_450.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  
+  <div class="figure-title" style="text-align:center; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Music</div>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Start</div>
+      <div>End</div>
+      <div>FILM</div>
+      <div>VFIFormer</div>
+      <div>DCInterp</div>
+      <div>ACInterp</div>
+      <div>Ours</div>
+      <div>GroundTruth</div>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/Ancient_Drum_42_clip1_432_446.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/Play_Gongs_and_drums_12_clip1_60_74.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+
+  <div class="figure-title" style="text-align:center; font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Talk</div>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Start</div>
+      <div>End</div>
+      <div>FILM</div>
+      <div>VFIFormer</div>
+      <div>DCInterp</div>
+      <div>ACInterp</div>
+      <div>Ours</div>
+      <div>GroundTruth</div>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/000168_32_scene_2_36_50.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/000169_39_scene_1_268_282.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width: 95%; max-width: 1400px;">
+          <source src="./res_vfi/000441_9_scene_1_16_30.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  
+  <div class="figure-title" style="text-align:center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">Evaluation - Ablation on Motion Guidance Interpolation</div>
+  <br>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Start&End Poses</div>
+      <div>Linear Blending</div>
+      <div>Ours</div>
+      <div>GroundTruth</div>
+      <div>Ours vs. GT</div>
+      <div>Ours vs. Linear</div>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_mdm/videos_126000_090d4ef08d19ac67b5fd.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_mdm/videos_127000_c67dda9473af22b1df77.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_mdm/videos_130000_c82155450b399f06f3c9.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+
+  <div class="figure-title" style="text-align:center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">Evaluation - Ablation on Improved Reference Decoder</div>
+  <br>
+  <div class="caption-line" style="display: flex; justify-content: space-around; margin-top: 10px; width: 95%; max-width: 1400px; margin: 0 auto;">
+      <div>Reference</div>
+      <div>Vanilla (SD)</div>
+      <div>Consistency (DALLE)</div>
+      <div>DualRef (ToonCrafter)</div>
+      <div>Temporal (SVD) </div>
+      <div>DupRef ToonCrafter</div>
+      <div>GroundTruth  </div>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_ref_decoder/Sample_130_514000_e7e487921818d4c4105f (1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_ref_decoder/Sample_16_212000_fda3015f659955bff1e9 (1).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+  <div class="video-container" style="text-align: center;">
+      <video autoplay loop preload="auto" muted controls style="width:95%; max-width: 1400px;">
+          <source src="./res_ref_decoder/Sample_25_514000_32d36ac8e74a12566bda.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div>
+
+  <div class="figure-title" style="text-align:center; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">Introduction Video</div>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <!-- <h2 class="title is-3">Video</h2> -->
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/cLcxYBXnVFs"
+                      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <div class="columns is-centered">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/jquery.event.move.js"></script>
+  <script>
+    // Add event listeners to each video
+    document.querySelectorAll('.demo-video').forEach(function(video) {
+      video.addEventListener('click', function() {
+        // Toggle mute on video click
+        if (video.muted) {
+          video.muted = false;
+          video.play();
+        } else {
+          video.muted = true;
+        }
+      });
+    });
+  </script>
+  <script>
+    function toggleAudio(videoId) {
+      var video = document.getElementById(videoId);
+      if (video.muted) {
+        video.muted = false;
+        document.querySelector(`#${videoId} + .audio-control .audio-btn`).textContent = '🔊';
+      } else {
+        video.muted = true;
+        document.querySelector(`#${videoId} + .audio-control .audio-btn`).textContent = '🔇';
+      }
+    }
+    function switchVideo(source) {
+    var video = document.getElementById('compositional_animals_vid');
+    var videoSource = document.getElementById('videoSource');
+
+    // Change the video source
+    videoSource.src = source;
+
+    // Load the new video
+    video.load();
+}
+
+function toggleAudio(videoId) {
+    var video = document.getElementById(videoId);
+    if (video.muted) {
+        video.muted = false;
+        document.querySelector(`#${videoId} + .audio-control .audio-btn`).textContent = '🔊';
+    } else {
+        video.muted = true;
+        document.querySelector(`#${videoId} + .audio-control .audio-btn`).textContent = '🔇';
+    }
+}
+  </script>
+  
+</body>
+
+</html>
