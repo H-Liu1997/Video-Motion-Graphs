@@ -1,0 +1,27 @@
+Video Motion Graphs
+Copyright 2026 Haiyang Liu and contributors.
+
+Original project code is licensed under Apache License 2.0. The following
+adapted components retain their original notices and licenses:
+
+Hugging Face Diffusers: diffusion/models/{attention,resnet,transformer_2d,
+  unet_2d_blocks,unet_2d_condition,unet_3d_blocks}.py and diffusion/utils/util.py.
+  Apache-2.0; see licenses/diffusers.txt.
+AnimateDiff: diffusion/models/{motion_module,unet_3d}.py.
+  Apache-2.0; see licenses/AnimateDiff.txt.
+MagicAnimate: diffusion/models/mutual_self_attention.py.
+  BSD-3-Clause; see licenses/magic-animate.txt.
+DWPose: vmg/dataloaders/tools/dwpose/.
+  Apache-2.0; see licenses/DWPose.txt.
+PixArt-alpha: attention implementation cited in diffusion/models/attention.py.
+  Apache-2.0; see licenses/PixArt-alpha.txt.
+
+These implementations were adapted for weighted-pose video interpolation,
+reference attention, motion-graph construction and local video preprocessing.
+Original attribution headers remain in the corresponding source files.
+
+Downloaded model weights retain their own terms. Stable Diffusion 1.5,
+SD image variations and the derived VMG checkpoint use CreativeML OpenRAIL-M
+(licenses/OpenRAIL-M.txt). SD-VAE-ft-mse declares MIT and AnimateDiff model
+weights declare Apache-2.0 in their upstream model cards. The project source
+license does not replace third-party model or example-media terms.
