@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+/weights
+examples/*.mp4
+examples/*.mp3
+cache/
+outputs/
+wandb/
+*.part
+*TEMP_MPY*

@@ -1,0 +1,11 @@
+data_path: examples/
+video_ori_name: Sequence_01_6
+audio_path: examples/beat_search_2_audio.mp3
+cache_path: cache/Sequence_01_6/
+out_path: outputs/vmg/
+pretrained_weights: weights/
+pose2video_path: diffusion/
+interpolation_config: diffusion/configs/inference.yaml
+threshold_list: [3.0, 2.0, 3.0, 1.0, 1.0]
+random_seed: 2021
+sample_count: 1

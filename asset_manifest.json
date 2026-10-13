@@ -1,0 +1,96 @@
+{
+  "format_version": 1,
+  "assets": [
+    {
+      "path": "weights/image_encoder/pytorch_model.bin",
+      "group": "base",
+      "url": "https://huggingface.co/lambda/sd-image-variations-diffusers/resolve/42bc0ee1726b141d49f519a6ea02ccfbf073db2e/image_encoder/pytorch_model.bin",
+      "bytes": 1215993967,
+      "sha256": "89d2aa29b5fdf64f3ad4f45fb4227ea98bc45156bbae673b85be1af7783dbabb"
+    },
+    {
+      "path": "weights/image_encoder/config.json",
+      "group": "base",
+      "url": "https://huggingface.co/lambda/sd-image-variations-diffusers/resolve/42bc0ee1726b141d49f519a6ea02ccfbf073db2e/image_encoder/config.json",
+      "bytes": 703,
+      "sha256": "ba41139cc9dad159163a53e2aa847356b627f53fef988ad461659bd2d587d886"
+    },
+    {
+      "path": "weights/stable-diffusion-v1-5/unet/diffusion_pytorch_model.bin",
+      "group": "base",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/diffusion_pytorch_model.bin",
+      "bytes": 3438354725,
+      "sha256": "c7da0e21ba7ea50637bee26e81c220844defdf01aafca02b2c42ecdadb813de4"
+    },
+    {
+      "path": "weights/stable-diffusion-v1-5/unet/config.json",
+      "group": "base",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/config.json",
+      "bytes": 743,
+      "sha256": "78f474de6bab3d893868f37be97b636ae65c0df3073ed3256ca458ff599b5f96"
+    },
+    {
+      "path": "weights/sd-vae-ft-mse/diffusion_pytorch_model.bin",
+      "group": "base",
+      "url": "https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/31f26fdeee1355a5c34592e401dd41e45d25a493/diffusion_pytorch_model.bin",
+      "bytes": 334707217,
+      "sha256": "1b4889b6b1d4ce7ae320a02dedaeff1780ad77d415ea0d744b476155c6377ddc"
+    },
+    {
+      "path": "weights/sd-vae-ft-mse/config.json",
+      "group": "base",
+      "url": "https://huggingface.co/stabilityai/sd-vae-ft-mse/resolve/31f26fdeee1355a5c34592e401dd41e45d25a493/config.json",
+      "bytes": 547,
+      "sha256": "92d3dfb746fca211a2c9e019e285f8597412211728dce3c5bcf4eda0f2d62e7e"
+    },
+    {
+      "path": "weights/animatediff/mm_sd_v15_v2.ckpt",
+      "group": "base",
+      "url": "https://huggingface.co/guoyww/animatediff/resolve/fdfe36afa161e51b3e9c24022b0e368d59e7345e/mm_sd_v15_v2.ckpt",
+      "bytes": 1817888431,
+      "sha256": "69ed0f5fef82b110aca51bcab73b21104242bc65d6ab4b8b2a2a94d31cad1bf0"
+    },
+    {
+      "path": "weights/finetune_weighted/checkpoint-8000/pytorch_model.bin",
+      "group": "checkpoint",
+      "url": "https://huggingface.co/H-Liu1997/Video-Motion-Graphs/resolve/3e74beec2114e14992e317c309a6bf18a8e2bd6f/finetune_weighted/checkpoint-8000/pytorch_model.bin",
+      "bytes": 8699145956,
+      "sha256": "9cc0f0354c5ec4b33085196ba5786f845e0901fd1dc7159e57be14d972c371af"
+    },
+    {
+      "path": "examples/Sequence_01_6.mp4",
+      "group": "examples",
+      "url": "https://huggingface.co/H-Liu1997/Video-Motion-Graphs/resolve/3e74beec2114e14992e317c309a6bf18a8e2bd6f/examples/Sequence_01_6.mp4",
+      "bytes": 81849986,
+      "sha256": "73516f10b56d55e62ca54ca4f3bf6650b1eeea8dacd747ec7c527f3e1f8b1ce8"
+    },
+    {
+      "path": "examples/beat_search_2_audio.mp3",
+      "group": "examples",
+      "url": "https://huggingface.co/H-Liu1997/Video-Motion-Graphs/resolve/3e74beec2114e14992e317c309a6bf18a8e2bd6f/examples/beat_search_2_audio.mp3",
+      "bytes": 289480,
+      "sha256": "37642a8ecf310866512230e284c171a54d5999c2cc41691e72f16c1e48ae5af8"
+    },
+    {
+      "path": "weights/DWPose/yolox_l.onnx",
+      "group": "preprocessing",
+      "url": "https://huggingface.co/yzd-v/DWPose/resolve/1a7144101628d69ee7a3768d1ee3a094070dc388/yolox_l.onnx",
+      "bytes": 216746733,
+      "sha256": "7860ae79de6c89a3c1eb72ae9a2756c0ccfbe04b7791bb5880afabd97855a411"
+    },
+    {
+      "path": "weights/DWPose/dw-ll_ucoco_384.onnx",
+      "group": "preprocessing",
+      "url": "https://huggingface.co/yzd-v/DWPose/resolve/1a7144101628d69ee7a3768d1ee3a094070dc388/dw-ll_ucoco_384.onnx",
+      "bytes": 134399116,
+      "sha256": "724f4ff2439ed61afb86fb8a1951ec39c6220682803b4a8bd4f598cd913b1843"
+    },
+    {
+      "path": "weights/segmentation/deeplabv3_resnet101_coco-586e9e4e.pth",
+      "group": "preprocessing",
+      "url": "https://download.pytorch.org/models/deeplabv3_resnet101_coco-586e9e4e.pth",
+      "bytes": 244545539,
+      "sha256": "586e9e4e203fcbf17e1ad45533d8d33ab133fc762bf03101c5dd743995c08c0d"
+    }
+  ]
+}
